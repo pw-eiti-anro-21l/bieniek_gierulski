@@ -1,0 +1,37 @@
+[0.256s] Invoking command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/turtle_controller build --build-base /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build install --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller --record /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/install.log --single-version-externally-managed
+[0.565s] running egg_info
+[0.565s] creating build/turtle_controller/turtle_controller.egg-info
+[0.565s] writing build/turtle_controller/turtle_controller.egg-info/PKG-INFO
+[0.566s] writing dependency_links to build/turtle_controller/turtle_controller.egg-info/dependency_links.txt
+[0.566s] writing entry points to build/turtle_controller/turtle_controller.egg-info/entry_points.txt
+[0.566s] writing requirements to build/turtle_controller/turtle_controller.egg-info/requires.txt
+[0.566s] writing top-level names to build/turtle_controller/turtle_controller.egg-info/top_level.txt
+[0.575s] writing manifest file 'build/turtle_controller/turtle_controller.egg-info/SOURCES.txt'
+[0.707s] reading manifest file 'build/turtle_controller/turtle_controller.egg-info/SOURCES.txt'
+[0.708s] writing manifest file 'build/turtle_controller/turtle_controller.egg-info/SOURCES.txt'
+[0.708s] running build
+[0.709s] running build_py
+[0.709s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build
+[0.709s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib
+[0.709s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib/turtle_controller
+[0.709s] copying turtle_controller/__init__.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib/turtle_controller
+[0.709s] copying turtle_controller/controller.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib/turtle_controller
+[0.709s] running install
+[0.710s] running install_lib
+[0.733s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller
+[0.733s] copying /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib/turtle_controller/__init__.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller
+[0.733s] copying /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build/lib/turtle_controller/controller.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller
+[0.733s] byte-compiling /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller/__init__.py to __init__.cpython-38.pyc
+[0.734s] byte-compiling /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller/controller.py to controller.cpython-38.pyc
+[0.735s] running install_data
+[0.737s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/share/ament_index
+[0.737s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/share/ament_index/resource_index
+[0.737s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/share/ament_index/resource_index/packages
+[0.737s] copying resource/turtle_controller -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/share/ament_index/resource_index/packages
+[0.737s] copying package.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/share/turtle_controller
+[0.738s] running install_egg_info
+[0.740s] Copying build/turtle_controller/turtle_controller.egg-info to /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages/turtle_controller-0.0.0-py3.8.egg-info
+[0.740s] running install_scripts
+[0.787s] Installing controller script to /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/turtle_controller
+[0.787s] writing list of installed files to '/home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/install.log'
+[0.810s] Invoked command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller' returned '0': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/turtle_controller build --build-base /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/build install --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/install/turtle_controller --record /home/krzysiek/dev_ws/src/bieniek_gierulski/turtle_controller/build/turtle_controller/install.log --single-version-externally-managed
