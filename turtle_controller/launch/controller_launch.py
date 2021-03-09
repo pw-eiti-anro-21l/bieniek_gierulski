@@ -9,10 +9,10 @@ def generate_launch_description():
             executable='controller',
             name='control',
             parameters=[
-                {'forward': 'x',
-                 'backwards': '<Down>',
-                 'left': '<Left>',
-                 'right': '<Right>'
+                {'forward': 'w',
+                 'backwards': 's',
+                 'left': 'a',
+                 'right': 'd'
                 }
             ]
         ),
