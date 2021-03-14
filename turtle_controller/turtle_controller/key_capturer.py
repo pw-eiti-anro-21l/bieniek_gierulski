@@ -19,7 +19,7 @@ class KeyCapturer(object):
         str_val4 = self.publisher.get_parameter('left').get_parameter_value().string_value
         char = event.char
 
-        if char == str_val1:
+        if char == str_val1 && char != " ":
             self.publisher.go_forward()
 
         if char == str_val2:
