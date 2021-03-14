@@ -16,9 +16,9 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='wojtek',
-    maintainer_email='wojtek@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer_email='wojtek.gierulski@gmail.com',
+    description='Apache License 2.0',
+    license='lab 1',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

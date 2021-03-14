@@ -3,9 +3,9 @@
 <package format="3">
   <name>turtle_controller</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="wojtek@todo.todo">wojtek</maintainer>
-  <license>TODO: License declaration</license>
+  <description>lab1</description>
+  <maintainer email="wojtek.gierulski@gmail.com">wojtek</maintainer>
+  <license>Apache License 2.0</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
