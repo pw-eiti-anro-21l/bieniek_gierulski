@@ -19,16 +19,16 @@ class KeyCapturer(object):
         str_val4 = self.publisher.get_parameter('left').get_parameter_value().string_value
         char = event.char
 
-        if char == str_val1 & char != " ":
+        if char == str_val1 and char != " ":
             self.publisher.go_forward()
 
-        if char == str_val2:
+        if char == str_val2 and char != " ":
             self.publisher.go_backwards()
 
-        if char == str_val3:
+        if char == str_val3 and char != " ":
             self.publisher.rotate_right()
 
-        if char == str_val4:
+        if char == str_val4 and char != " ": 
             self.publisher.rotate_left()
 
     def run(self):
