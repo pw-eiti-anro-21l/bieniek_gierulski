@@ -11,14 +11,15 @@ class Publisher(Node):
     LIN_VEL = 0.5
 
     def __init__(self):
-        super().__init__("controller")
+        super().__init__("control")
         self.publisher_ = self.create_publisher(Twist, 'turtle1/cmd_vel', 1)
+        
         self.declare_parameter('forward', 'w')
         self.declare_parameter('left', 'a')
         self.declare_parameter('right', 'd')
         self.declare_parameter('backwards', 's')
 
-    def publish_(self, lin_vel, ang_vel):
+    def publish_(self, lin_vel, ang_vel):   # invoked upon key press
         msg = Twist()
         msg.linear.x = lin_vel
         msg.linear.y = 0.0
@@ -47,7 +48,7 @@ def main(args=None):
 
     publisher = Publisher()
     key_capturer = KeyCapturer(publisher)
-    th1 = threading.Thread(target=rclpy.spin, args=(key_capturer.publisher,))
+    th1 = threading.Thread(target=rclpy.spin, args=(key_capturer.publisher,))   # bcs spin() blocks actual thread
     th1.start()
     key_capturer.run()
 
