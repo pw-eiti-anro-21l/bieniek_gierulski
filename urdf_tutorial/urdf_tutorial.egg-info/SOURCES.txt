@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+resource/urdf_tutorial
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+urdf_tutorial/__init__.py
+urdf_tutorial.egg-info/PKG-INFO
+urdf_tutorial.egg-info/SOURCES.txt
+urdf_tutorial.egg-info/dependency_links.txt
+urdf_tutorial.egg-info/entry_points.txt
+urdf_tutorial.egg-info/requires.txt
+urdf_tutorial.egg-info/top_level.txt
+urdf_tutorial.egg-info/zip-safe
