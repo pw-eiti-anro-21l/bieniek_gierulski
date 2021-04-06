@@ -1,0 +1,18 @@
+[0.235s] Invoking command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_tutorial': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_tutorial/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial
+[0.456s] running develop
+[0.581s] running egg_info
+[0.581s] writing urdf_tutorial.egg-info/PKG-INFO
+[0.582s] writing dependency_links to urdf_tutorial.egg-info/dependency_links.txt
+[0.582s] writing entry points to urdf_tutorial.egg-info/entry_points.txt
+[0.582s] writing requirements to urdf_tutorial.egg-info/requires.txt
+[0.582s] writing top-level names to urdf_tutorial.egg-info/top_level.txt
+[0.611s] reading manifest file 'urdf_tutorial.egg-info/SOURCES.txt'
+[0.612s] writing manifest file 'urdf_tutorial.egg-info/SOURCES.txt'
+[0.645s] running build_ext
+[0.646s] Creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial/lib/python3.8/site-packages/urdf-tutorial.egg-link (link to .)
+[0.647s] Installing state_publisher script to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial/lib/urdf_tutorial
+[0.647s] 
+[0.647s] Installed /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_tutorial
+[0.647s] running install_data
+[0.647s] copying urdf/r2d2.urdf.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial/share/urdf_tutorial
+[0.673s] Invoked command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_tutorial' returned '0': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_tutorial/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_tutorial

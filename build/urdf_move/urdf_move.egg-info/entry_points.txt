@@ -1,0 +1,3 @@
+[console_scripts]
+state_publisher = urdf_move.state_publisher:main
+

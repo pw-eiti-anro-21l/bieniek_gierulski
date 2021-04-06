@@ -1,0 +1,27 @@
+running egg_info
+writing ../build/turtle_controller/turtle_controller.egg-info/PKG-INFO
+writing dependency_links to ../build/turtle_controller/turtle_controller.egg-info/dependency_links.txt
+writing entry points to ../build/turtle_controller/turtle_controller.egg-info/entry_points.txt
+writing requirements to ../build/turtle_controller/turtle_controller.egg-info/requires.txt
+writing top-level names to ../build/turtle_controller/turtle_controller.egg-info/top_level.txt
+reading manifest file '../build/turtle_controller/turtle_controller.egg-info/SOURCES.txt'
+writing manifest file '../build/turtle_controller/turtle_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+copying turtle_controller/key_capturer.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/build/turtle_controller/build/lib/turtle_controller
+running install
+running install_lib
+copying /home/krzysiek/dev_ws/src/bieniek_gierulski/build/turtle_controller/build/lib/turtle_controller/key_capturer.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller
+byte-compiling /home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller/key_capturer.py to key_capturer.cpython-38.pyc
+running install_data
+  File "/home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller/key_capturer.py", line 28
+    if char == str_val3 & char != " "::
+                                      ^
+SyntaxError: invalid syntax
+
+running install_egg_info
+removing '/home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../build/turtle_controller/turtle_controller.egg-info to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller-0.0.0-py3.8.egg-info
+running install_scripts
+Installing controller script to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/turtle_controller
+writing list of installed files to '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/turtle_controller/install.log'

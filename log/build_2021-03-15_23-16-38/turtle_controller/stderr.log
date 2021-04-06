@@ -1,0 +1,5 @@
+  File "/home/krzysiek/dev_ws/src/bieniek_gierulski/install/turtle_controller/lib/python3.8/site-packages/turtle_controller/key_capturer.py", line 22
+    if char == str_val1 && char != " ":
+                         ^
+SyntaxError: invalid syntax
+

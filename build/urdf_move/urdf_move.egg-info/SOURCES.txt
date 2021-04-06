@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+launch/demo.launch.py
+resource/urdf_move
+urdf/r2d2.rviz
+urdf/r2d2.urdf.xml
+urdf_move/__init__.py
+urdf_move/state_publisher.py
+urdf_move.egg-info/PKG-INFO
+urdf_move.egg-info/SOURCES.txt
+urdf_move.egg-info/dependency_links.txt
+urdf_move.egg-info/entry_points.txt
+urdf_move.egg-info/requires.txt
+urdf_move.egg-info/top_level.txt
+urdf_move.egg-info/zip-safe
