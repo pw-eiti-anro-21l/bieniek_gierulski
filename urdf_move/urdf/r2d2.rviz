@@ -50,21 +50,15 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        axis:
+        base:
           Value: true
-        body:
+        elevator:
           Value: true
-        box:
+        rotator:
           Value: true
-        head:
+        rotator2:
           Value: true
-        leg1:
-          Value: true
-        leg2:
-          Value: true
-        odom:
-          Value: true
-        rod:
+        arm:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -100,41 +94,32 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        axis:
+        base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        body:
+        elevator:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        box:
+        rotator:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        head:
+        rotator2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        leg1:
+        arm:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        leg2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rod:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0

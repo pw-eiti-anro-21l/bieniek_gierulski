@@ -42,7 +42,7 @@ def generate_launch_description():
             executable='joint_state_publisher',
             name='joint_state_publisher',
             output='screen',
-            parameters=[{'use_gui' : True}],
+            parameters=[{'use_gui' : True , 'robot_description': Command(['xacro' , ' ' , urdf])}],
             ),
         Node(
             package='urdf_move',

@@ -43,6 +43,7 @@ def generate_launch_description():
             name='joint_state_publisher',
             output='screen',
             parameters=[{'use_gui' : True}],
+            arguments=[urdf],
             ),
         Node(
             package='urdf_move',

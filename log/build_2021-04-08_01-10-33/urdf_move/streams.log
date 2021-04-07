@@ -1,0 +1,18 @@
+[0.255s] Invoking command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move
+[0.494s] running develop
+[0.629s] running egg_info
+[0.629s] writing urdf_move.egg-info/PKG-INFO
+[0.629s] writing dependency_links to urdf_move.egg-info/dependency_links.txt
+[0.629s] writing entry points to urdf_move.egg-info/entry_points.txt
+[0.630s] writing requirements to urdf_move.egg-info/requires.txt
+[0.630s] writing top-level names to urdf_move.egg-info/top_level.txt
+[0.659s] reading manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.660s] writing manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.694s] running build_ext
+[0.695s] Creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages/urdf-move.egg-link (link to .)
+[0.696s] Installing state_publisher script to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/urdf_move
+[0.696s] 
+[0.696s] Installed /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move
+[0.696s] running install_data
+[0.696s] copying launch/joint_state_publisher.launch.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.723s] Invoked command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move' returned '0': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move
