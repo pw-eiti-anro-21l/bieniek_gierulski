@@ -1,4 +1,5 @@
 from math import sin, cos, pi
+import yaml
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
@@ -12,25 +13,35 @@ class StatePublisher(Node):
         rclpy.init()
         super().__init__('state_publisher')
 
+        with open(r'/home/krzysiek/dev_ws/src/bieniek_gierulski/urdf_move/urdf/data.yaml') as file:
+            params_dict = yaml.load(file, Loader=yaml.FullLoader)
+
         qos_profile = QoSProfile(depth=10)
         self.joint_pub = self.create_publisher(JointState, 'joint_states', qos_profile)
         self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
         self.nodeName = self.get_name()
         self.get_logger().info("{0} started".format(self.nodeName))
 
-        degree = pi / 180.0
         loop_rate = self.create_rate(30)
 
-        # robot state
+        ### - initialization - ###
         angle = 0.
-        tinc = degree
         base_to_elevator = 0.
-        elevator_to_base_rotator = 0.
-        base_rotator_to_arm = 0.
-        arm_to_arm_rotator = 0.
-        arm_rotator_to_manipulator = 0.
-        elevator_to_base_rotator_up = True
+        elevator_to_rotator = 0.
+        rotator_to_rotator2 = 0.
+        rotator2_to_arm = 0.
+        ### - flags - ###
+        elevator_to_rotator_up = True
         arm_rotator_to_manipulator_left = True
+        rotator_to_rotator2_left = True
+        rotator2_to_arm_left  = True
+        ### - limits - ###
+        elevator_to_rotator_up_limit = params_dict['joints']['joint2']['upper_limit']
+        elevator_to_rotator_down_limit = 0
+        rotator_to_rotator2_up_limit = params_dict['joints']['joint3']['upper_limit']
+        rotator_to_rotator2_down_limit = 0
+        rotator2_to_arm_up_limit = params_dict['joints']['joint4']['upper_limit']
+        rotator2_to_arm_down_limit = 0
 
         # message declarations
         odom_trans = TransformStamped()
@@ -45,11 +56,8 @@ class StatePublisher(Node):
                 # update joint_state
                 now = self.get_clock().now()
                 joint_state.header.stamp = now.to_msg()
-                joint_state.name = ['base-to-elevator', 'elevator-to-base-rotator', 'base-rotator-to-arm','arm-to-arm-rotator','arm-rotator-to-manipulator']
-                joint_state.position = [base_to_elevator, elevator_to_base_rotator, base_rotator_to_arm , arm_to_arm_rotator , arm_rotator_to_manipulator]
-
-#                joint_state.name = ['swivel', 'tilt', 'periscope']
- #               joint_state.position = [swivel, tilt, height]
+                joint_state.name = ['base_to_elevator', 'elevator_to_rotator', 'rotator_to_rotator2','rotator2_to_arm']
+                joint_state.position = [base_to_elevator, elevator_to_rotator, rotator_to_rotator2, rotator2_to_arm]
 
                 # update transform
                 # (moving in a circle with radius=2)
@@ -68,24 +76,8 @@ class StatePublisher(Node):
                 self.broadcaster.sendTransform(odom_trans)
 
                 # Create new robot state
-                base_rotator_to_arm += 0.01
-                if (arm_rotator_to_manipulator_left):
-                    arm_rotator_to_manipulator -= 0.01
-                else:
-                    arm_rotator_to_manipulator += 0.01
-                if (arm_rotator_to_manipulator <= -1.57):
-                    arm_rotator_to_manipulator_left = False
-                elif(arm_rotator_to_manipulator >= 1.57):
-                    arm_rotator_to_manipulator_left = True
-                if elevator_to_base_rotator_up:
-                    elevator_to_base_rotator += 0.01
-                else:
-                    elevator_to_base_rotator -= 0.01
-                if (elevator_to_base_rotator >= 0.8 ):
-                    elevator_to_base_rotator_up = False
-                elif(elevator_to_base_rotator <= 0):
-                    elevator_to_base_rotator_up = True
-                # This will adjust as needed per iteration
+
+                 # This will adjust as needed per iteration
                 loop_rate.sleep()
 
         except KeyboardInterrupt:

@@ -1,0 +1,31 @@
+[0.245s] Invoking command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move
+[0.474s] running develop
+[0.600s] running egg_info
+[0.600s] creating urdf_move.egg-info
+[0.600s] writing urdf_move.egg-info/PKG-INFO
+[0.601s] writing dependency_links to urdf_move.egg-info/dependency_links.txt
+[0.601s] writing entry points to urdf_move.egg-info/entry_points.txt
+[0.601s] writing requirements to urdf_move.egg-info/requires.txt
+[0.601s] writing top-level names to urdf_move.egg-info/top_level.txt
+[0.602s] writing manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.631s] reading manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.631s] writing manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.666s] running build_ext
+[0.666s] Creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages/site.py
+[0.668s] Creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages/urdf-move.egg-link (link to .)
+[0.669s] Installing state_publisher script to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/urdf_move
+[0.669s] 
+[0.669s] Installed /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move
+[0.670s] running install_data
+[0.670s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/ament_index
+[0.670s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/ament_index/resource_index
+[0.670s] creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/ament_index/resource_index/packages
+[0.670s] copying resource/urdf_move -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/ament_index/resource_index/packages
+[0.670s] copying package.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.670s] copying launch/demo.launch.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.670s] copying urdf/r2d2.urdf.xacro.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.670s] copying urdf/r2d2.rviz -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.670s] copying urdf/file.yaml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.670s] copying urdf/sss -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.671s] copying urdf/r2d2.urdf.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.700s] Invoked command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move' returned '0': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move

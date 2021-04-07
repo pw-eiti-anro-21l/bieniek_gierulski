@@ -3,9 +3,9 @@
 <package format="3">
   <name>turtle_controller</name>
   <version>0.0.0</version>
-  <description>lab1</description>
-  <maintainer email="wojtek.gierulski@gmail.com">wojtek</maintainer>
-  <license>Apache License 2.0</license>
+  <description>TODO: Package description</description>
+  <maintainer email="wojtek@todo.todo">wojtek</maintainer>
+  <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
@@ -16,6 +16,5 @@
     <build_type>ament_python</build_type>
     <exec_depend>geometry_msgs</exec_depend>
     <exec_depend>rclpy</exec_depend>
-    <exec_depend>key_capturer</exec_depend>
   </export>
 </package>

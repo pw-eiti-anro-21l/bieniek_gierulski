@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    xacro_path = LaunchConfiguration('xacro_path', default='r2d2.urdf.xacro.xml')
+
     urdf_file_name = 'r2d2.urdf.xacro.xml'
     rviz_file_name = 'r2d2.rviz'
 
@@ -35,7 +35,7 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro' , ' ' , xacro_path])}],
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['urdf.xacro.xml' , ' ' , urdf])}],
             ),
         Node(
             package='urdf_move',
