@@ -3,8 +3,11 @@ setup.cfg
 setup.py
 launch/demo.launch.py
 resource/urdf_move
+urdf/file.yaml
 urdf/r2d2.rviz
+urdf/r2d2.urdf.xacro.xml
 urdf/r2d2.urdf.xml
+urdf/sss
 urdf_move/__init__.py
 urdf_move/state_publisher.py
 urdf_move.egg-info/PKG-INFO

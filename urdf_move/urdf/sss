@@ -1,0 +1,7 @@
+	<xacro:property name="yaml_file" value="$(/file.yaml" />
+	<xacro:property name="props" value="${load_yaml(yaml_file)}"/>
+	<xacro:property name="elevator_len" value="${props['elevator_len']}" />
+	<xacro:property name="arm_len" value="${props['arm_len']}" />
+	<xacro:property name="manipulator_len" value="${props['manipulator_len']}" />
+	<xacro:property name="manipulator_down_range" value="${props['manipulator_down_range']}" />
+	<xacro:property name="manipulator_up_range" value="${props['manipulator_up_range']}" />
