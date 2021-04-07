@@ -35,13 +35,14 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['urdf.xacro.xml' , ' ' , urdf])}],
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro' , ' ' , urdf])}],
             ),
         Node(
             package='urdf_move',
             executable='state_publisher',
             name='state_publisher',
             output='screen'),
+
         Node(
             package='rviz2',
             executable='rviz2',

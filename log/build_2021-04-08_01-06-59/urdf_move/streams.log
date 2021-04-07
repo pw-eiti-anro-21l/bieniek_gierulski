@@ -1,0 +1,23 @@
+[0.253s] Invoking command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move
+[0.494s] running develop
+[0.629s] running egg_info
+[0.629s] writing urdf_move.egg-info/PKG-INFO
+[0.630s] writing dependency_links to urdf_move.egg-info/dependency_links.txt
+[0.630s] writing entry points to urdf_move.egg-info/entry_points.txt
+[0.630s] writing requirements to urdf_move.egg-info/requires.txt
+[0.630s] writing top-level names to urdf_move.egg-info/top_level.txt
+[0.660s] reading manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.661s] writing manifest file 'urdf_move.egg-info/SOURCES.txt'
+[0.697s] running build_ext
+[0.697s] Creating /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages/urdf-move.egg-link (link to .)
+[0.698s] Installing state_publisher script to /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/urdf_move
+[0.699s] 
+[0.699s] Installed /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move
+[0.699s] running install_data
+[0.699s] copying launch/joint_state_publisher.launch.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.699s] copying launch/demo.launch.py -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.699s] copying urdf/r2d2.urdf.xacro.xml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.699s] copying urdf/r2d2.rviz -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.699s] copying urdf/data.yaml -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.700s] copying urdf/sss -> /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/share/urdf_move
+[0.727s] Invoked command in '/home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move' returned '0': PYTHONPATH=/home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move --editable --build-directory /home/krzysiek/dev_ws/src/bieniek_gierulski/build/urdf_move/build --no-deps install_data --install-dir /home/krzysiek/dev_ws/src/bieniek_gierulski/install/urdf_move

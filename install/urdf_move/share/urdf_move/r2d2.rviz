@@ -75,11 +75,10 @@ Visualization Manager:
         odom:
           base:
             elevator:
-              base-rotator:
-                arm:
-                  arm-rotator:
-                    manipulator:
-                      {}
+              rotator:
+                rotator2:
+                  arm:
+                    {}
 
       Update Interval: 0
       Value: true
