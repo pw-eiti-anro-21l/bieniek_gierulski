@@ -66,13 +66,12 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        odom:
-          base:
-            elevator:
-              rotator:
-                rotator2:
-                  arm:
-                    {}
+        base:
+          elevator:
+            rotator:
+              rotator2:
+                arm:
+                  {}
 
       Update Interval: 0
       Value: true
@@ -128,7 +127,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: base
     Frame Rate: 30
   Name: root
   Tools:

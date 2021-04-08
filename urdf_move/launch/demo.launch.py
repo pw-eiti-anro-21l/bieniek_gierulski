@@ -38,6 +38,13 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro' , ' ' , urdf])}],
             ),
         Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name='joint_state_publisher',
+            output='screen',
+            parameters=[{'use_gui' : True , 'robot_description': Command(['xacro' , ' ' , urdf])}],
+            ),
+        Node(
             package='urdf_move',
             executable='state_publisher',
             name='state_publisher',
@@ -51,4 +58,3 @@ def generate_launch_description():
             parameters =[{'use_sim_time': use_sim_time}],
             arguments = ['-d', rviz],)
     ])
-
