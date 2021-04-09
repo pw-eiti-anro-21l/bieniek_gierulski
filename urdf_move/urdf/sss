@@ -1,0 +1,95 @@
+<robot name="robot">
+
+<link name="base">
+  <visual>
+    <origin xyz="0.0 0 0.2" rpy="0 0.0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.4"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+  </visual>
+</link>
+
+<joint name="base-elevator" type="fixed">
+  <origin xyz="0 0 0.4" rpy="0 0 0"/>
+  <parent link="base"/>
+  <child link="elevator"/>
+  <axis xyz="0 0 1"/>
+  <limit upper="0" lower="0" effort="10" velocity="10"/>
+</joint>
+
+<link name="elevator">
+  <visual>
+    <origin xyz="0.0 0 0.5" rpy="0 0.0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+  </visual>
+</link>
+
+<joint name="elevator-rotator" type="prismatic">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="elevator"/>
+  <child link="rotator"/>
+  <axis xyz="0 0 1"/>
+  <limit upper="0" lower="0" effort="10" velocity="10"/>
+</joint>
+
+<link name="rotator">
+  <visual>
+    <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.0"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+  </visual>
+</link>
+
+<joint name="rotator-rotator2" type="revolute">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="rotator"/>
+  <child link="rotator2"/>
+  <axis xyz="0 0 1"/>
+  <limit upper="0" lower="0" effort="10" velocity="10"/>
+</joint>
+
+<link name="rotator2">
+  <visual>
+    <origin xyz="0.5 0 0.0" rpy="0 1.5707963267948966 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="1.0"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+  </visual>
+</link>
+
+<joint name="rotator2-arm" type="revolute">
+  <origin xyz="1 0 0" rpy="0 0 0"/>
+  <parent link="rotator2"/>
+  <child link="arm"/>
+  <axis xyz="0 0 1"/>
+  <limit upper="0" lower="0" effort="10" velocity="10"/>
+</joint>
+
+<link name="arm">
+  <visual>
+    <origin xyz="0.1 0 0.0" rpy="0 1.5707963267948966 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.2"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+  </visual>
+</link>
+
+</robot>
