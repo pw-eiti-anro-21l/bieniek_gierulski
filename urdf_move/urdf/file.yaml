@@ -1,5 +1,0 @@
-elevator_len: 1
-arm_len: 1
-manipulator_len: 0.2
-manipulator_down_range: -1.57
-manipulator_up_range: 1.57
