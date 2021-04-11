@@ -30,7 +30,7 @@ joints:
     rpy: 0.0 0 0
     type: revolute
     upper_limit: 6.28
-    xyz: 1.0 0 0.0
+    xyz: 0.3 0 0.0
 links:
   link0:
     length: 0.4
@@ -51,11 +51,11 @@ links:
     rpy: 0 0 0
     xyz: 0.0 0 0.0
   link3:
-    length: 1.0
+    length: 0.3
     name: rotator2
     radius: 0.03
     rpy: 0 1.5707963267948966 0
-    xyz: 0.5 0 0.0
+    xyz: 0.15 0 0.0
   link4:
     length: 0.2
     name: arm
