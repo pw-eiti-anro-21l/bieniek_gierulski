@@ -16,6 +16,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name), glob('launch/*.py')),
+        (os.path.join('share', package_name), glob('lab3_essential/dh.txt')),
         (os.path.join('share', package_name), glob('urdf/*'))
     ],
     install_requires=['setuptools'],
@@ -27,7 +28,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'state_publisher = lab3_essential.state_publisher:main'
+            'state_publisher = lab3_essential.state_publisher:main',
+            'no_kdl = lab3_essential.no_kdl:main'
         ],
     },
 )
