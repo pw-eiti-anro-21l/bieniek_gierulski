@@ -132,7 +132,7 @@
 
   	<joint name='${joint3_name}' type='${joint3_type}'>
 	    <axis xyz="0 0 1"/>
-	    <limit effort="1000.0" lower="0.0" upper='${joint3_upper_limit}' velocity="0.5"/>
+	    <limit effort="1000.0" lower="0" upper='${joint3_upper_limit}' velocity="0.5"/>
 	    <origin rpy='${joint3_rpy}' xyz='${joint3_xyz}'/>
 	    <parent link='${joint3_parent}'/>
 	    <child link='${joint3_child}'/>
@@ -150,7 +150,7 @@
 
 	<joint name='${joint4_name}' type='${joint4_type}'>
 		<axis xyz='0 0 1'/>
-		<limit effort="1000.0" lower="0" upper='${joint4_upper_limit}' velocity="0.5"/>
+		<limit effort="1000.0" lower="-1.57" upper='1.57' velocity="0.5"/>
 	    <origin rpy='${joint4_rpy}' xyz='${joint4_xyz}'/>
 	    <parent link='${joint4_parent}'/>
 	    <child link='${joint4_child}'/>
