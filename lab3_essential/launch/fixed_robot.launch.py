@@ -1,4 +1,5 @@
 import os
+from PyKDL import *
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -11,7 +12,6 @@ def generate_launch_description():
 
     urdf_file_name = 'r2d2_fixed.urdf.xacro.xml'
     rviz_file_name = 'r2d2.rviz'
-
 
     urdf = os.path.join(
         get_package_share_directory('lab3_essential'),

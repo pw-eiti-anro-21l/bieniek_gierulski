@@ -1,3 +1,0 @@
-[console_scripts]
-state_publisher = lab3_essential.state_publisher:main
-
