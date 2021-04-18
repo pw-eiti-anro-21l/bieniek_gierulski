@@ -2,10 +2,11 @@ import rclpy
 from rclpy.node import Node
 import numpy
 from sensor_msgs.msg import JointState
-from geometry_msgs.msg import Quaternion, Point, Pose
-from ament_index_python.packages import get_package_share_directory
-import os
+from geometry_msgs.msg import Point, Pose, PoseStamped
+from std_msgs.msg import Header
 from math import cos, sin
+from lab3_essential.functions import *
+from rclpy.clock import ROSClock
 
 
 class No_KDL(Node):
@@ -16,29 +17,9 @@ class No_KDL(Node):
             JointState,
             'joint_states',
             self.listener_callback, 1)
-        self.publisher_ = self.create_publisher(JointState, 'topic', 1)
-        self.DH = self.get_dh_table()
+        self.publisher = self.create_publisher(PoseStamped, 'non_kdl', 1)
+        self.DH = get_dh_table()
 
-    def get_dh_table(self):
-        name= os.path.join(
-            get_package_share_directory('lab3_essential'),
-            "dh.txt")
-        DH1 = []
-        with open(name) as file:
-            for line in file:
-                line = line.split()
-                DH1.append(line)
-        del DH1[0]
-        DH = []
-        for row in DH1:
-            new_row = []
-            for param in row:
-                try:
-                    new_row.append(float(param))
-                except:
-                    new_row.append(param)
-            DH.append(new_row)
-        return DH
 
     def calculate(self, msg):
         matrices_list = []
@@ -57,13 +38,25 @@ class No_KDL(Node):
         for matrix in matrices_list[2:-1]:
             total_result = numpy.dot(total_result, matrix)
         position = numpy.dot(total_result, [self.DH[-1][0], 0, 0, 1])
-        return position[0:3]
+        return position[0:3], total_result
 
 
 
     def listener_callback(self, msg):
-        position = self.calculate(msg.position)
-        print(position)
+        position, matrix = self.calculate(msg.position)
+        point = Point()
+        point.x = position[0]
+        point.y = position[1]
+        point.z = position[2]
+        quaternion = rot_matrix_to_quaternion(matrix)
+        pose = Pose()
+        pose.position = point
+        pose.orientation = quaternion
+        pose_st = PoseStamped()
+        pose_st.pose = pose
+        pose_st.header.stamp = ROSClock().now().to_msg()
+        pose_st.header.frame_id = "base"
+        self.publisher.publish(pose_st)
 
 
 def main(args=None):
