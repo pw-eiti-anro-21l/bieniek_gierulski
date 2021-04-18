@@ -2,6 +2,7 @@ from math import *
 from ament_index_python.packages import get_package_share_directory
 import os
 from geometry_msgs.msg import Quaternion
+import yaml
 
 
 def get_dh_table():
@@ -45,3 +46,9 @@ def rot_matrix_to_quaternion(matrix):
     roll, pitch, yaw = rot_matrix_to_rpy(matrix)
     quaternion = euler_to_quaternion(roll, pitch, yaw)
     return quaternion
+
+
+def load_yaml():
+    with open(os.path.join(get_package_share_directory('lab3_essential'), 'data.yaml'), 'r') as file:
+        yamll = yaml.load(file)
+        return yamll

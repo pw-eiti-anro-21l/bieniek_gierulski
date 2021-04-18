@@ -3,7 +3,6 @@ from rclpy.node import Node
 import numpy
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Point, Pose, PoseStamped
-from std_msgs.msg import Header
 from math import cos, sin
 from lab3_essential.functions import *
 from rclpy.clock import ROSClock

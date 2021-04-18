@@ -28,7 +28,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'state_publisher = lab3_essential.state_publisher:main',
+            'kdl_fk = lab3_essential.kdl_fk:main',
             'no_kdl = lab3_essential.no_kdl:main'
         ],
     },
