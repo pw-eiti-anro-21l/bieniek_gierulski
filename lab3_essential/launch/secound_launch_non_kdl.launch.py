@@ -30,8 +30,8 @@ def generate_launch_description():
             default_value='false',
             description='Use simulation (Gazebo) clock if true'),
         Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            output='screen')
+            package='lab3_essential',
+            executable='no_kdl',
+            name='no_kdl',
+        )
     ])
