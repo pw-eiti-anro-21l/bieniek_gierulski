@@ -54,38 +54,51 @@ class KDL_fk(Node):
         self.chain.addSegment(s5)
 
     def listener_callback(self, msg):
-        jointAngles = JntArray(5)
-        jointAngles[0] = 0.0
-        jointAngles[1] = msg.position[0]
-        jointAngles[2] = msg.position[1]
-        jointAngles[3] = msg.position[2]
-        jointAngles[4] = float(self.params["links"]["link4"]["length"])
-        fk = ChainFkSolverPos_recursive(self.chain)
-        finalFrame = Frame()
-        fk.JntToCart(jointAngles, finalFrame)
-        position = finalFrame.p
-        matrix = finalFrame.M
+        if self.check_joint_positions(msg):
+            jointAngles = JntArray(5)
+            jointAngles[0] = 0.0
+            jointAngles[1] = msg.position[0]
+            jointAngles[2] = msg.position[1]
+            jointAngles[3] = msg.position[2]
+            jointAngles[4] = float(self.params["links"]["link4"]["length"])
+            fk = ChainFkSolverPos_recursive(self.chain)
+            finalFrame = Frame()
+            fk.JntToCart(jointAngles, finalFrame)
+            position = finalFrame.p
+            matrix = finalFrame.M
 
-        point = Point()
-        point.x = position[0]
-        point.y = position[1]
-        point.z = position[2]
-        quaternion = matrix.GetQuaternion()
-        quaternion = Quaternion(x=quaternion[0], y=quaternion[1], z=quaternion[2], w=quaternion[3])
-        pose = Pose()
-        pose.position = point
-        pose.orientation = quaternion
-        pose_st = PoseStamped()
-        pose_st.pose = pose
-        pose_st.header.stamp = ROSClock().now().to_msg()
-        pose_st.header.frame_id = "base"
-        self.publisher.publish(pose_st)
+            point = Point()
+            point.x = position[0]
+            point.y = position[1]
+            point.z = position[2]
+            quaternion = matrix.GetQuaternion()
+            quaternion = Quaternion(x=quaternion[0], y=quaternion[1], z=quaternion[2], w=quaternion[3])
+            pose = Pose()
+            pose.position = point
+            pose.orientation = quaternion
+            pose_st = PoseStamped()
+            pose_st.pose = pose
+            pose_st.header.stamp = ROSClock().now().to_msg()
+            pose_st.header.frame_id = "base"
+            self.publisher.publish(pose_st)
 
     def convert_string(self, str):
         new = []
         for nmbr in str.split():
             new.append(float(nmbr))
         return new
+
+    def check_joint_positions(self, msg):
+        if msg.position[0] > 1.01 or msg.position[0] < 0:
+            self.get_logger().error("Joint 1 invalid position")
+            return False
+        elif msg.position[1] > 6.29 or msg.position[1] < 0:
+            self.get_logger().error("Joint 2 invalid position")
+            return False
+        elif msg.position[2] > 1.9 or msg.position[2] < -1.9:
+            self.get_logger().error("Joint 3 invalid position")
+            return False
+        return True
 
 
 def main(args=None):
