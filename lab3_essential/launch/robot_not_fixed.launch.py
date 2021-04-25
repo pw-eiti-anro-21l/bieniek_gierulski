@@ -9,7 +9,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    urdf_file_name = 'r2d2_fixed.urdf.xacro.xml'
+    urdf_file_name = 'r2d2.urdf.xacro.xml'
     rviz_file_name = 'r2d2.rviz'
 
     urdf = os.path.join(
@@ -34,18 +34,20 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro' , ' ' , urdf])}]),
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro', ' ', urdf])}]),
+
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
             name='joint_state_publisher_gui',
             output='screen'),
+
         Node(
             package='rviz2',
             executable='rviz2',
             name='rviz2',
             output='screen',
-            parameters =[{'use_sim_time': use_sim_time}],
-            arguments = ['-d', rviz],)
-    ])
+            parameters=[{'use_sim_time': use_sim_time}],
+            arguments=['-d', rviz], )
 
+    ])
