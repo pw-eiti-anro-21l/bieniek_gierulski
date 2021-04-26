@@ -34,6 +34,7 @@ class No_KDL(Node):
             result.append([0, 0, 0, 1])
             matrices_list.append(result)
         total_result = numpy.dot(matrices_list[0], matrices_list[1])
+
         for matrix in matrices_list[2:-1]:
             total_result = numpy.dot(total_result, matrix)
         position = numpy.dot(total_result, [self.DH[-1][0], 0, 0, 1])

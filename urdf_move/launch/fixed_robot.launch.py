@@ -9,8 +9,8 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    urdf_file_name = 'r2d2_fixed.urdf.xacro.xml'
-    rviz_file_name = 'r2d2.rviz'
+    urdf_file_name = 'robot_fixed.urdf.xacro.xml'
+    rviz_file_name = 'robot.rviz'
 
 
     urdf = os.path.join(
