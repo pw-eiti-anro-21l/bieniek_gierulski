@@ -42,20 +42,33 @@ class No_KDL(Node):
 
 
     def listener_callback(self, msg):
-        position, matrix = self.calculate(msg.position)
-        point = Point()
-        point.x = position[0]
-        point.y = position[1]
-        point.z = position[2]
-        quaternion = rot_matrix_to_quaternion(matrix)
-        pose = Pose()
-        pose.position = point
-        pose.orientation = quaternion
-        pose_st = PoseStamped()
-        pose_st.pose = pose
-        pose_st.header.stamp = ROSClock().now().to_msg()
-        pose_st.header.frame_id = "base"
-        self.publisher.publish(pose_st)
+        if self.check_joint_positions(msg):
+            position, matrix = self.calculate(msg.position)
+            point = Point()
+            point.x = position[0]
+            point.y = position[1]
+            point.z = position[2]
+            quaternion = rot_matrix_to_quaternion(matrix)
+            pose = Pose()
+            pose.position = point
+            pose.orientation = quaternion
+            pose_st = PoseStamped()
+            pose_st.pose = pose
+            pose_st.header.stamp = ROSClock().now().to_msg()
+            pose_st.header.frame_id = "base"
+            self.publisher.publish(pose_st)
+
+    def check_joint_positions(self, msg):
+        if msg.position[0] > 1.01 or msg.position[0] < 0:
+            self.get_logger().error("Joint 1 invalid position")
+            return False
+        elif msg.position[1] > 6.29 or msg.position[1] < 0:
+            self.get_logger().error("Joint 2 invalid position")
+            return False
+        elif msg.position[2] > 1.9 or msg.position[2] < -1.9:
+            self.get_logger().error("Joint 3 invalid position")
+            return False
+        return True
 
 
 def main(args=None):

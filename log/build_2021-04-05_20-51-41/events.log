@@ -1,5 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000373] (-) JobUnselected: {'identifier': 'turtle_controller'}
-[0.000486] (-) JobUnselected: {'identifier': 'urdf_tutorial'}
-[0.000547] (-) JobUnselected: {'identifier': 'urdf_tutorial'}
-[0.000718] (-) EventReactorShutdown: {}
