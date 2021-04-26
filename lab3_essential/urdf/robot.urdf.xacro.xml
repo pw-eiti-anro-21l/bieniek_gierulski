@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="r2d2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
 	<xacro:property name="props" value="${load_yaml('data.yaml')}"/>
@@ -95,7 +95,7 @@
 		</visual>
 	</link>
 
-	<joint name='${joint1_name}' type='fixed'>
+	<joint name='${joint1_name}' type='${joint1_type}'>
      	<parent link='${joint1_parent}'/>
    		<child link='${joint1_child}'/>
      	<origin rpy='${joint1_rpy}' xyz='${joint1_xyz}'/>
@@ -112,7 +112,7 @@
 		</visual>
 	</link>
 
-	<joint name='${joint2_name}' type='fixed'>
+	<joint name='${joint2_name}' type='${joint2_type}'>
 		<parent link='${joint2_parent}'/>
 		<child link='${joint2_child}'/>
 		<limit effort="1000.0" lower="0" upper='${joint2_upper_limit}' velocity="10"/>
@@ -130,7 +130,7 @@
 		</visual>
 	</link>
 
-  	<joint name='${joint3_name}' type='fixed'>
+  	<joint name='${joint3_name}' type='${joint3_type}'>
 	    <axis xyz="0 0 1"/>
 	    <limit effort="1000.0" lower="0.0" upper='${joint3_upper_limit}' velocity="0.5"/>
 	    <origin rpy='${joint3_rpy}' xyz='${joint3_xyz}'/>
@@ -148,9 +148,9 @@
 		</visual>
 	</link>
 
-	<joint name='${joint4_name}' type='fixed'>
+	<joint name='${joint4_name}' type='${joint4_type}'>
 		<axis xyz='0 0 1'/>
-		<limit effort="1000.0" lower="0" upper='${joint4_upper_limit}' velocity="0.5"/>
+		<limit effort="1000.0" lower="-2" upper='2' velocity="0.5"/>
 	    <origin rpy='${joint4_rpy}' xyz='${joint4_xyz}'/>
 	    <parent link='${joint4_parent}'/>
 	    <child link='${joint4_child}'/>
