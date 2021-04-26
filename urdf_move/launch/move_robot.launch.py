@@ -20,6 +20,7 @@ def generate_launch_description():
     rviz = os.path.join(
         get_package_share_directory('urdf_move'),
         rviz_file_name)
+        
 
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
