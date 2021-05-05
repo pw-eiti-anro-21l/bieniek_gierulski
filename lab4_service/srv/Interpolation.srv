@@ -1,0 +1,7 @@
+float64 joint1_pos
+float64 joint2_pos
+float64 joint3_pos
+float64 time
+string method
+---
+string result

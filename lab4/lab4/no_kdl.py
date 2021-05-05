@@ -6,6 +6,7 @@ from geometry_msgs.msg import Point, Pose, PoseStamped
 from math import cos, sin
 from lab3_essential.functions import *
 from rclpy.clock import ROSClock
+from visualization_msgs.msg import MarkerArray, Marker
 
 
 class No_KDL(Node):
@@ -17,7 +18,9 @@ class No_KDL(Node):
             'joint_states',
             self.listener_callback, 1)
         self.publisher = self.create_publisher(PoseStamped, 'non_kdl', 1)
+        self.publisher2 = self.create_publisher(MarkerArray, "trajectory", 1)
         self.DH = get_dh_table()
+        self.markers = MarkerArray()
 
 
     def calculate(self, msg):
@@ -55,7 +58,27 @@ class No_KDL(Node):
         pose_st.pose = pose
         pose_st.header.stamp = ROSClock().now().to_msg()
         pose_st.header.frame_id = "base"
+
+        marker = Marker()
+        marker.header.stamp = ROSClock().now().to_msg()
+        marker.header.frame_id = "/base"
+        marker.type = 2
+        marker.pose = pose
+        marker.id = len(self.markers.markers) + 1
+        marker.action = Marker.ADD
+        marker.type = Marker.SPHERE
+        marker.scale.x = 0.05
+        marker.scale.y = 0.05
+        marker.scale.z = 0.05
+        marker.color.a = 1.0
+        marker.color.r = 0.0
+        marker.color.g = 1.0
+        marker.color.b = 0.0
+
+        self.markers.markers.append(marker)
+        self.publisher2.publish(self.markers)
         self.publisher.publish(pose_st)
+
 
 
 def main(args=None):

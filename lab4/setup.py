@@ -29,7 +29,9 @@ setup(
     entry_points={
         'console_scripts': [
             'kdl_fk = lab4.kdl_fk:main',
-            'no_kdl = lab4.no_kdl:main'
+            'no_kdl = lab4.no_kdl:main',
+            'jint = lab4.jint:main',
+            'interpolator = lab4.interpolator:main'
         ],
     },
 )
