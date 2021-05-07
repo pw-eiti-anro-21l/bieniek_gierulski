@@ -19,7 +19,6 @@ class No_KDL(Node):
             self.listener_callback, 1)
         self.publisher = self.create_publisher(PoseStamped, 'non_kdl', 1)
         self.publisher2 = self.create_publisher(MarkerArray, "trajectory", 1)
-        self.DH = get_dh_table()
         self.markers = MarkerArray()
 
 

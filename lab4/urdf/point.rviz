@@ -7,8 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /TF1
-        - /RobotModel1
-        - /RobotModel1/Description Topic1
+        - /MarkerArray1
       Splitter Ratio: 0.5
     Tree Height: 617
   - Class: rviz_common/Selection
@@ -50,15 +49,7 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
-          Value: true
-        link1:
-          Value: true
-        link2:
-          Value: true
-        link3:
-          Value: true
-        tool:
+        base:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -66,16 +57,12 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        base_link:
-          link1:
-            link2:
-              link3:
-                tool:
-                  {}
+          base:
+              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
-      Class: rviz_default_plugins/RobotModel
+      Class: rviz_default_plugins/Point
       Collision Enabled: false
       Description File: ""
       Description Source: Topic
@@ -92,40 +79,20 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
+        base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tool:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
+      Name: Point
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Background Color: 48;48;48
+    Fixed Frame: base
     Frame Rate: 30
   Name: root
   Tools:
@@ -180,10 +147,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7597970962524414
+      Pitch: 0.459797203540802
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.5235724449157715
+      Yaw: 4.618575572967529
     Saved: ~
 Window Geometry:
   Displays:
