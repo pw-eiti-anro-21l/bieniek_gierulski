@@ -12,17 +12,17 @@ from visualization_msgs.msg import MarkerArray, Marker
 class Draw_point(Node):
 
     def __init__(self):
-        super().__init__('no_kdl')
+        super().__init__('draw_point')
         self.subscription = self.create_subscription(
-            JointState,
-            'joint_states',
+            PoseStamped,
+            'pose_stamped',
             self.listener_callback, 1)
-        self.publisher = self.create_publisher(PoseStamped, 'non_kdl', 1)
-        self.publisher2 = self.create_publisher(MarkerArray, "trajectory", 1)
+        self.publisher2 = self.create_publisher(MarkerArray, "position", 1)
         self.markers = MarkerArray()
 
     def listener_callback(self, msg):
         position = msg.position
+        orientation = msg.pose.orientation
         point = Point()
         point.x = position[0]
         point.y = position[1]

@@ -27,7 +27,7 @@ class LinearInterpolator:
 
         self.calc(j0[0], j1[0], self.start_time, self.start_time + time, self.DELAY_TIME, 0)
         self.calc(j0[1], j1[1], self.start_time, self.start_time + time, self.DELAY_TIME, 1)
-        self.calc(j0[1], j1[1], self.start_time, self.start_time + time, self.DELAY_TIME, 2)
+        self.calc(j0[2], j1[2], self.start_time, self.start_time + time, self.DELAY_TIME, 2)
 
         while len(self.states_done) != 3:
             self.publish_messages()

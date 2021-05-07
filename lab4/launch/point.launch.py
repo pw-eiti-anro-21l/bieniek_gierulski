@@ -29,10 +29,6 @@ def generate_launch_description():
             default_value='false',
             description='Use simulation (Gazebo) clock if true'),
 
-        Node(
-            package='lab4',
-            executable='oint_pub',
-            name='oint_pub',),
 
         Node(
             package='rviz2',
