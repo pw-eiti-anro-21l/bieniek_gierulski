@@ -7,26 +7,31 @@ from math import cos, sin
 from lab3_essential.functions import *
 from rclpy.clock import ROSClock
 from visualization_msgs.msg import MarkerArray, Marker
-
+from lab4_service.srv import Interpolation
 
 class Oint_Pub(Node):
 
     def __init__(self):
         super().__init__('oint_pub')
-        self.subscription = self.create_subscription(
-            JointState,
-            'joint_states',
-            self.listener_callback, 1)
+        self.srv = self.create_service(Interpolation, 'Interpolation', self.interpolation_callback)
         self.publisher = self.create_publisher(PoseStamped, 'oint_pub', 1)
         self.publisher2 = self.create_publisher(MarkerArray, "trajectory", 1)
         self.markers = MarkerArray()
+        self.joint_positions = [0.0, 0.0, 0.0]
+        self.joint_rotation = [0.0, 0.0, 0.0]
 
+    def interpolation_callback(self, request, response):
+        j1 = [request.joint1_pos, request.joint2_pos, request.joint3_pos]
+        time = request.time
+        if request.method == "linear":
+            interpolator = LinearInterpolatorPoint()
+            interpolator.interpolate(self.joint_positions, j1, time, self.publisher)
+        elif request.method == "cubic":
+            interpolator = CubicInterpolatorPoint()
+            interpolator.interpolate(self.joint_positions, j1, time, self.publisher)
 
-    def calculate(self, msg):
-
-        return Position
-
-
+        response.result = "Done"
+        return response
 
     def listener_callback(self, msg):
         position= self.calculate(msg.position)
