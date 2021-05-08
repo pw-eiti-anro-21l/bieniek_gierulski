@@ -7,7 +7,7 @@ from math import cos, sin
 from lab3_essential.functions import *
 from rclpy.clock import ROSClock
 from visualization_msgs.msg import MarkerArray, Marker
-
+from lab4.functions import *
 
 class Draw_point(Node):
 
@@ -15,14 +15,17 @@ class Draw_point(Node):
         super().__init__('draw_point')
         self.subscription = self.create_subscription(
             PoseStamped,
-            'pose_stamped',
+            'pose',
             self.listener_callback, 1)
         self.publisher2 = self.create_publisher(MarkerArray, "position", 1)
         self.markers = MarkerArray()
 
     def listener_callback(self, msg):
         position = msg.position
-        orientation = msg.pose.orientation
+        orientation = msg.orientation
+
+        quater = euler_to_quaternion(orientation[0],orientation[1],orientation[2])
+
         point = Point()
         point.x = position[0]
         point.y = position[1]
@@ -33,6 +36,7 @@ class Draw_point(Node):
         pose_st.pose = pose
         pose_st.header.stamp = ROSClock().now().to_msg()
         pose_st.header.frame_id = "base"
+        pose.orientation = quater
 
         marker = Marker()
         marker.header.stamp = ROSClock().now().to_msg()
@@ -52,7 +56,7 @@ class Draw_point(Node):
 
         self.markers.markers.append(marker)
         self.publisher2.publish(self.markers)
-        self.publisher.publish(pose_st)
+
 
 
 

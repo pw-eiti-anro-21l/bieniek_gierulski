@@ -1,5 +1,5 @@
 import sys
-from lab4_service.srv import Interpolation
+from lab4_point_service.srv import InterpolationPoint
 import rclpy
 from rclpy.node import Node
 import math
@@ -9,10 +9,10 @@ class MinimalClientAsyncPoint(Node):
 
     def __init__(self):
         super().__init__('minimal_client_async_point')
-        self.cli = self.create_client(Interpolation_Point, 'Interpolation_Point')
+        self.cli = self.create_client(InterpolationPoint, 'InterpolationPoint')
         while not self.cli.wait_for_service(timeout_sec=0.1):
             self.get_logger().info('service not available, waiting again...')
-        self.req = Interpolation_Point.Request()
+        self.req = InterpolationPoint.Request()
         self.METHODS = ["linear", "cubic"]
 
     def send_request(self):
@@ -28,8 +28,8 @@ class MinimalClientAsyncPoint(Node):
         self.req.method = str(sys.argv[8])
         if self.req.time <= 0:
             raise Exception("Invalid time")
-        #if self.req.method not in self.METHODS:
-        #    raise Exception("Invalid method")
+        if self.req.method not in self.METHODS:
+            raise Exception("Invalid method")
         #if self.req.joint1_pos > 1 or self.req.joint1_pos < 0:
         #    raise Exception("Invalid joint1 position")
         #if self.req.joint2_pos > 2 * math.pi or self.req.joint2_pos < 0:

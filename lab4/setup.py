@@ -31,7 +31,10 @@ setup(
             'kdl_fk = lab4.kdl_fk:main',
             'no_kdl = lab4.no_kdl:main',
             'jint = lab4.jint:main',
-            'interpolator = lab4.interpolator:main'
+            'interpolator = lab4.interpolator:main',
+            'oint = lab4.oint:main',
+            'Draw_point = lab4.Draw_point:main',
+            'interporator_Point = lab4.interpolator_Point:main'
         ],
     },
 )
