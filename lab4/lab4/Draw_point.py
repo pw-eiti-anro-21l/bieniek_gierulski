@@ -15,34 +15,23 @@ class Draw_point(Node):
         super().__init__('draw_point')
         self.subscription = self.create_subscription(
             PoseStamped,
-            'pose',
+            'oint_pub',
             self.listener_callback, 1)
-        self.publisher2 = self.create_publisher(MarkerArray, "position", 1)
+        self.publisher2 = self.create_publisher(MarkerArray, "trajectory_point", 1)
         self.markers = MarkerArray()
 
     def listener_callback(self, msg):
-        position = msg.position
-        orientation = msg.orientation
-
-        quater = euler_to_quaternion(orientation[0],orientation[1],orientation[2])
-
-        point = Point()
-        point.x = position[0]
-        point.y = position[1]
-        point.z = position[2]
-        pose = Pose()
-        pose.position = point
+        print("heared")
         pose_st = PoseStamped()
-        pose_st.pose = pose
+        pose_st.pose = msg.pose
         pose_st.header.stamp = ROSClock().now().to_msg()
         pose_st.header.frame_id = "base"
-        pose.orientation = quater
 
         marker = Marker()
         marker.header.stamp = ROSClock().now().to_msg()
         marker.header.frame_id = "/base"
         marker.type = 2
-        marker.pose = pose
+        marker.pose = pose_st.pose
         marker.id = len(self.markers.markers) + 1
         marker.action = Marker.ADD
         marker.type = Marker.SPHERE
@@ -56,6 +45,7 @@ class Draw_point(Node):
 
         self.markers.markers.append(marker)
         self.publisher2.publish(self.markers)
+        print(self.markers.markers)
 
 
 

@@ -1,5 +1,5 @@
 import sys
-from lab4_point_service.srv import InterpolationPoint
+from lab4_service.srv import InterpolationPoint
 import rclpy
 from rclpy.node import Node
 import math

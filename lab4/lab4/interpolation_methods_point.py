@@ -12,20 +12,16 @@ class LinearInterpolatorPoint:
         self.Point_pose = [0.0 , 0.0 , 0.0]
         self.Point_rotate = [0.0 , 0.0 , 0.0]
 
-####do poprawy
     def publish_messages(self):
-        # Joint states
         msg = PoseStamped()
         msg.header.stamp = ROSClock().now().to_msg()
+        msg.header.frame_id = "base"
         msg.pose.position.x = self.Point_pose[0]
         msg.pose.position.y = self.Point_pose[1]
         msg.pose.position.z = self.Point_pose[2]
-        msg.pose.orientation.x = self.Point_rotate[0]
-        msg.pose.orientation.y = self.Point_rotate[1]
-        msg.pose.orientation.z = self.Point_rotate[2]
+        quaternion = euler_to_quaternion(self.Point_rotate[0], self.Point_rotate[1], self.Point_rotate[2])
+        msg.pose.orientation = quaternion
         self.publisher.publish(msg)
-
-#---------
 
 
     def interpolate(self, j0, j1,j2 , j3 , time, publisher):
