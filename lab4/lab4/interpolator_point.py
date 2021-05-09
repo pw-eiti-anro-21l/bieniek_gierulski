@@ -19,9 +19,21 @@ class Oint_Pub(Node):
         self.positions = [0.0, 0.0, 0.0]
         self.rotations = [0.0, 0.0, 0.0]
 
+
+        # Publish once
         msg = PoseStamped()
         msg.header.stamp = ROSClock().now().to_msg()
+        msg.header.frame_id = "base"
+        msg.pose.position.x = 0
+        msg.pose.position.z = 0
+        msg.pose.position.y = 0
+        msg.pose.orientation.x = 0
+        msg.pose.orientation.y = 0
+        msg.pose.orientation.z = 0
+        msg.pose.orientation.w = 1
         self.publisher.publish(msg)
+
+
 
     def interpolation_callback(self, request, response):
         j1 = [request.x_pos, request.y_pos, request.z_pos]

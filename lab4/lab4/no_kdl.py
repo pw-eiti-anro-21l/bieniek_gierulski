@@ -66,9 +66,9 @@ class No_KDL(Node):
         marker.id = len(self.markers.markers) + 1
         marker.action = Marker.ADD
         marker.type = Marker.SPHERE
-        marker.scale.x = 0.05
-        marker.scale.y = 0.05
-        marker.scale.z = 0.05
+        marker.scale.x = 0.03
+        marker.scale.y = 0.03
+        marker.scale.z = 0.03
         marker.color.a = 1.0
         marker.color.r = 0.0
         marker.color.g = 1.0

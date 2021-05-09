@@ -29,7 +29,6 @@ def generate_launch_description():
             default_value='false',
             description='Use simulation (Gazebo) clock if true'),
 
-
         Node(
             package='rviz2',
             executable='rviz2',
@@ -37,5 +36,4 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time}],
             arguments=['-d', rviz], )
-
     ])

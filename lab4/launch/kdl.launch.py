@@ -17,9 +17,6 @@ def generate_launch_description():
         get_package_share_directory('lab4'),
         urdf_file_name)
 
-    rviz = os.path.join(
-        get_package_share_directory('lab4'),
-        rviz_file_name)
 
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
