@@ -21,7 +21,6 @@ class Draw_point(Node):
         self.markers = MarkerArray()
 
     def listener_callback(self, msg):
-        print("heared")
         pose_st = PoseStamped()
         pose_st.pose = msg.pose
         pose_st.header.stamp = ROSClock().now().to_msg()
@@ -45,7 +44,6 @@ class Draw_point(Node):
 
         self.markers.markers.append(marker)
         self.publisher2.publish(self.markers)
-        print(self.markers.markers)
 
 
 

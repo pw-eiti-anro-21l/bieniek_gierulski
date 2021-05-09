@@ -33,8 +33,8 @@ setup(
             'jint = lab4.jint:main',
             'interpolator = lab4.interpolator:main',
             'oint = lab4.oint:main',
-            'marker_array_drawer = lab4.Draw_point:main',
-            'interpolator_Point = lab4.interpolator_Point:main'
+            'marker_array_drawer = lab4.draw_marker_array:main',
+            'interpolator_Point = lab4.interpolator_point:main'
         ],
     },
 )

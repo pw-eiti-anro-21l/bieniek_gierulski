@@ -24,13 +24,13 @@ class Oint_Pub(Node):
         msg = PoseStamped()
         msg.header.stamp = ROSClock().now().to_msg()
         msg.header.frame_id = "base"
-        msg.pose.position.x = 0
-        msg.pose.position.z = 0
-        msg.pose.position.y = 0
-        msg.pose.orientation.x = 0
-        msg.pose.orientation.y = 0
-        msg.pose.orientation.z = 0
-        msg.pose.orientation.w = 1
+        msg.pose.position.x = 0.0
+        msg.pose.position.z = 0.0
+        msg.pose.position.y = 0.0
+        msg.pose.orientation.x = 0.0
+        msg.pose.orientation.y = 0.0
+        msg.pose.orientation.z = 0.0
+        msg.pose.orientation.w = 1.0
         self.publisher.publish(msg)
 
 
