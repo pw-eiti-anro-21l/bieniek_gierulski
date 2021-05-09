@@ -26,6 +26,7 @@ class MinimalService(Node):
         msg1 = JointState()
         msg1.header.stamp = ROSClock().now().to_msg()
         msg1.name = ["elevator_to_rotator", "rotator_to_rotator2", "rotator2_to_arm"]
+        msg1.position = self.joint_positions
         msg1.header.frame_id = "base"
         self.publisher.publish(msg1)
 
