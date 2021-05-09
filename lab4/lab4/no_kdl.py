@@ -20,6 +20,7 @@ class No_KDL(Node):
         self.publisher = self.create_publisher(PoseStamped, 'non_kdl', 1)
         self.publisher2 = self.create_publisher(MarkerArray, "trajectory", 1)
         self.markers = MarkerArray()
+        self.DH = get_dh_table()
 
 
     def calculate(self, msg):
