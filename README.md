@@ -7,3 +7,5 @@ Lab2: https://github.com/pw-eiti-anro-21l/bieniek_gierulski/wiki/Lab2-dokumentac
 Lab3: https://github.com/pw-eiti-anro-21l/bieniek_gierulski/wiki/Lab3-dokumentacja
 
 Lab4: https://github.com/pw-eiti-anro-21l/bieniek_gierulski/wiki/Lab4-dokumentacja
+
+Lab5: https://github.com/pw-eiti-anro-21l/bieniek_gierulski/wiki/Lab5-Dokumentacja
