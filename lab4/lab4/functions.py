@@ -52,3 +52,4 @@ def load_yaml():
     with open(os.path.join(get_package_share_directory('lab4'), 'data.yaml'), 'r') as file:
         yamll = yaml.load(file)
         return yamll
+

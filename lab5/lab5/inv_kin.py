@@ -4,7 +4,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
 import math
-from lab5.functions import get_dh_table
+from lab5.functions import get_dh_table, forward_kin_calc
 
 
 class Inv_kin(Node):
@@ -28,6 +28,7 @@ class Inv_kin(Node):
         self.publisher.publish(message)
 
     def calc_inv_kin(self, actual_joints, end_point):
+
         try:
             d1 = end_point[2] - self.DH[0][1]
 
@@ -78,7 +79,6 @@ class Inv_kin(Node):
         self.previous_joints[0] = msg.position[0]
         self.previous_joints[1] = msg.position[1]
         self.previous_joints[2] = msg.position[2]
-        print(self.previous_joints)
 
     def normalize_angle(self, angle):
         while angle < 0:

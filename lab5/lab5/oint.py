@@ -2,7 +2,7 @@ import sys
 from lab4_service.srv import InterpolationPoint
 import rclpy
 from rclpy.node import Node
-import math
+
 
 
 class MinimalClientAsyncPoint(Node):

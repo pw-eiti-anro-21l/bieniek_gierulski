@@ -22,6 +22,7 @@ class Oint_Pub(Node):
             self.listener_callback, 1)
         self.positions = [2.0, 0.0, 0.4]
         self.rotations = [0.0, 0.0, 0.0]
+        self.DH = get_dh_table()
 
 
         # Publish once
@@ -45,18 +46,15 @@ class Oint_Pub(Node):
     def interpolation_callback(self, request, response):
         j1 = [request.x_pos, request.y_pos, request.z_pos]
         j2 = [request.roll, request.pitch, request.yaw]
+        xyz, total = forward_kin_calc(self.DH, self.positions)
+        print(xyz[1])
         time = request.time
         if request.method == "linear":
-            interpolator = LinearInterpolatorPoint(self.positions)
-            interpolator.interpolate(self.positions, j1,self.rotations , j2, time, self.publisher)
+            interpolator = LinearInterpolatorPoint(xyz)
+            interpolator.interpolate(xyz, j1,self.rotations , j2, time, self.publisher)
         elif request.method == "cubic":
-            interpolator = CubicInterpolatorPoint(self.positions)
-            interpolator.interpolate(self.positions, j1,self.rotations , j2, time, self.publisher)
-
-
-
-        self.positions = j1
-        self.rotations = j2
+            interpolator = CubicInterpolatorPoint(xyz)
+            interpolator.interpolate(xyz, j1,self.rotations , j2, time, self.publisher)
 
         response.result = "Done"
         return response
