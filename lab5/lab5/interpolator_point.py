@@ -16,6 +16,10 @@ class Oint_Pub(Node):
         super().__init__('interpolator_point')
         self.srv = self.create_service(InterpolationPoint, 'InterpolationPoint', self.interpolation_callback)
         self.publisher = self.create_publisher(PoseStamped, 'interpolator_point', 1)
+        self.subscription = self.create_subscription(
+            JointState,
+            'joint_states',
+            self.listener_callback, 1)
         self.positions = [2.0, 0.0, 0.4]
         self.rotations = [0.0, 0.0, 0.0]
 
@@ -33,7 +37,10 @@ class Oint_Pub(Node):
         msg.pose.orientation.w = 1.0
         self.publisher.publish(msg)
 
-
+    def listener_callback(self, msg):
+        self.positions[0] = msg.position[0]
+        self.positions[1] = msg.position[1]
+        self.positions[2] = msg.position[2]
 
     def interpolation_callback(self, request, response):
         j1 = [request.x_pos, request.y_pos, request.z_pos]
@@ -45,6 +52,8 @@ class Oint_Pub(Node):
         elif request.method == "cubic":
             interpolator = CubicInterpolatorPoint(self.positions)
             interpolator.interpolate(self.positions, j1,self.rotations , j2, time, self.publisher)
+
+
 
         self.positions = j1
         self.rotations = j2

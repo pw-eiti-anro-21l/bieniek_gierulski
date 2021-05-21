@@ -13,9 +13,12 @@ class Inv_kin(Node):
         super().__init__('inv_kin')
         self.publisher = self.create_publisher(JointState, 'joint_states', 1)
         self.subscriber = self.create_subscription(PoseStamped, "interpolator_point", self.listener_callback, 1)
+        self.subscription = self.create_subscription(
+            JointState,
+            'joint_states',
+            self.listener_callback2, 1)
         self.previous_joints = [0, 0, 0]
         self.DH = get_dh_table()
-        print(self.DH[4][0], self.DH[3][0])
 
         message = JointState()
         message.header.stamp = ROSClock().now().to_msg()
@@ -70,6 +73,12 @@ class Inv_kin(Node):
             self.previous_joints = result
         else:
             self.get_logger().error("Can't reach given position")
+
+    def listener_callback2(self, msg):
+        self.previous_joints[0] = msg.position[0]
+        self.previous_joints[1] = msg.position[1]
+        self.previous_joints[2] = msg.position[2]
+        print(self.previous_joints)
 
     def normalize_angle(self, angle):
         while angle < 0:

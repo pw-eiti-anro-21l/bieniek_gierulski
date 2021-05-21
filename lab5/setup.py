@@ -30,7 +30,9 @@ setup(
         'console_scripts': [
             'interpolator_point = lab5.interpolator_point:main',
             'oint = lab5.oint:main',
-            'inv_kin = lab5.inv_kin:main'
+            'inv_kin = lab5.inv_kin:main',
+            'interpolator = lab5.interpolator:main',
+            'jint = lab5.jint:main'
         ],
     },
 )

@@ -1,0 +1,5 @@
+[console_scripts]
+interpolator_point = lab5.interpolator_point:main
+inv_kin = lab5.inv_kin:main
+oint = lab5.oint:main
+

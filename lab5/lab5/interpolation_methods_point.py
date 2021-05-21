@@ -76,3 +76,4 @@ class CubicInterpolatorPoint(LinearInterpolatorPoint):
         else:
             t = Timer(self.DELAY_TIME, self.calc, [x0, x1, t0, t1, t_delta + self.DELAY_TIME, num, cords])
             t.start()
+
