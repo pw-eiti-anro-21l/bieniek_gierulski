@@ -3,7 +3,7 @@ from rclpy.node import Node
 import numpy
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Point, Pose ,PoseStamped
-from math import cos, sin ,asin , acos
+from math import cos, sin ,asin , acos, atan2
 from lab5.functions import *
 from rclpy.clock import ROSClock
 from visualization_msgs.msg import MarkerArray, Marker
@@ -30,7 +30,7 @@ class Draw_elipse(Node):
     def calc_elipse(self,a,b,nx,ny):
         ##a - promień większy
         ## b - promień mniejszy
-        angle = self.inv_calc_elipse(a,nx)
+        angle = atan2(ny, nx)
         t = angle + pi/100
         x = a*cos(t)
         y = b * sin(t)
