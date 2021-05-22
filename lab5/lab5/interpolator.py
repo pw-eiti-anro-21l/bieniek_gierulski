@@ -51,10 +51,13 @@ class MinimalService(Node):
     def interpolation_callback(self, request, response):
         j1 = [request.joint1_pos, request.joint2_pos, request.joint3_pos]
         time = request.time
-        if request.method == "linear":
+        method = request.method
+        if ((method == "rectangle") or (method == "elipse")):
+            method = "linear"
+        if method == "linear":
             interpolator = LinearInterpolator()
             interpolator.interpolate(self.joint_positions, j1, time, self.publisher,self.publisher2)
-        elif request.method == "cubic":
+        elif method == "cubic":
             interpolator = CubicInterpolator()
             interpolator.interpolate(self.joint_positions, j1, time, self.publisher,self.publisher2)
 
