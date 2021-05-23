@@ -95,10 +95,13 @@ def main(args=None):
                     break
     elif sys.argv[1] == "elipse":
         minimal_client.drawer = ElipseDrawer(sys.argv[2], sys.argv[3])
+        first = True
         while True:
             try:
+                time = 0.1 if not first else 5.0
+                first = False
                 point = minimal_client.drawer.get_next_point()
-                minimal_client.send_request(point[0], point[1], point[2], 0.0, 0.0, 0.0, 0.1, "linear")
+                minimal_client.send_request(point[0], point[1], point[2], 0.0, 0.0, 0.0, time, "linear")
             except:
                 print("Invalid arguments")
                 sys.exit(0)
