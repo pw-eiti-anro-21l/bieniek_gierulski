@@ -5,6 +5,8 @@ from rclpy.node import Node
 from lab5.shapes_drawer import RectangleDrawer, ElipseDrawer
 
 
+
+
 class MinimalClientAsyncPoint(Node):
 
     def __init__(self):
@@ -16,9 +18,11 @@ class MinimalClientAsyncPoint(Node):
         self.METHODS = ["linear", "cubic"]
         self.drawer = None
 
+
     def send_request(self, x, y, z, roll, pitch, yaw, time, method):
         # check data
         # check data
+
         self.req.x_pos = x
         self.req.y_pos = y
         self.req.z_pos = z
@@ -27,17 +31,24 @@ class MinimalClientAsyncPoint(Node):
         self.req.yaw = yaw
         self.req.time = time
         self.req.method = method
+
         if self.req.time <= 0:
             raise Exception("Invalid time")
         if self.req.method not in self.METHODS:
             raise Exception("Invalid method")
         self.future = self.cli.call_async(self.req)
 
+    def get_method(self):
+        return self.methodd
+
+    def get_ab(self):
+        return [self.ab]
 
 def main(args=None):
     rclpy.init(args=args)
 
     minimal_client = MinimalClientAsyncPoint()
+
 
     if sys.argv[1] != "rectangle" and sys.argv[1] != "elipse":
         try:
@@ -47,6 +58,7 @@ def main(args=None):
             print("Invalid arguments")
             sys.exit(0)
         while rclpy.ok():
+
             rclpy.spin_once(minimal_client)
             if minimal_client.future.done():
                 try:
@@ -103,6 +115,7 @@ def main(args=None):
                             'Result: %s' %
                             response.result)
                     break
+
 
 
 
