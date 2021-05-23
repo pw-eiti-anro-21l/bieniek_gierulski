@@ -24,6 +24,10 @@ def generate_launch_description():
             name='inv_kin'),
         Node(
             package='lab5',
+            executable='no_kdl',
+            name='no_kdl'),
+        Node(
+            package='lab5',
             executable='interpolator',
             name='interpolator'),
         Node(

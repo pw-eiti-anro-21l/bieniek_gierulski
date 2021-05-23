@@ -33,7 +33,8 @@ setup(
             'inv_kin = lab5.inv_kin:main',
             'interpolator = lab5.interpolator:main',
             'jint = lab5.jint:main',
-            'marker_array_drawer = lab5.marker_array_drawer:main'
+            'marker_array_drawer = lab5.marker_array_drawer:main',
+            'no_kdl = lab5.no_kdl:main'
 
         ],
     },
