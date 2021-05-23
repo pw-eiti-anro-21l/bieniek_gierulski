@@ -58,7 +58,6 @@ class Inv_kin(Node):
             return [d1, phi2, phi3]
 
         except Exception as e:
-            print(e)
             return None
 
     def normalize_angle(self, angle):
@@ -71,11 +70,10 @@ class Inv_kin(Node):
     def angle_diff(self, a1, a2):
         a1 = math.degrees(a1)
         a2 = math.degrees(a2)
-        dif = float(abs(a1-a2) % 360)
+        dif = float(abs(a1 - a2) % 360)
         if dif > 180:
             dif = 360 - dif
         return math.radians(dif)
-
 
     def listener_callback(self, msg):
         result = self.calc_inv_kin(self.previous_joints,
@@ -91,11 +89,11 @@ class Inv_kin(Node):
         else:
             self.get_logger().error("Can't reach given position")
 
-
     def listener_callback2(self, msg):
         self.previous_joints[0] = msg.position[0]
         self.previous_joints[1] = msg.position[1]
         self.previous_joints[2] = msg.position[2]
+
 
 def main(args=None):
     rclpy.init(args=args)
