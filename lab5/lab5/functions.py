@@ -55,6 +55,7 @@ def load_yaml():
         return yamll
 
 def forward_kin_calc(DH, msg):
+    # msg - joint states
     matrices_list = []
     DH[1][1] = msg[0]
     DH[2][3] = msg[1]

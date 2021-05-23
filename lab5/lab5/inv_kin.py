@@ -40,30 +40,46 @@ class Inv_kin(Node):
                 cos_phi3 = 0.000000001
             phi3_1 = math.atan2(sin_phi3_1, cos_phi3)
             phi2_1 = math.atan2(end_point[1], end_point[0]) - math.atan2(self.DH[4][0] * sin_phi3_1,
-                                                                       self.DH[3][0] + self.DH[4][0] * cos_phi3)
+                                                                         self.DH[3][0] + self.DH[4][0] * cos_phi3)
             phi3_2 = math.atan2(sin_phi3_2, cos_phi3)
             phi2_2 = math.atan2(end_point[1], end_point[0]) - math.atan2(self.DH[4][0] * sin_phi3_2,
-                                                                       self.DH[3][0] + self.DH[4][0] * cos_phi3)
+                                                                         self.DH[3][0] + self.DH[4][0] * cos_phi3)
 
-            if abs(phi2_1 - actual_joints[1]) <= abs(phi2_2 - actual_joints[1]):
-                phi2 = phi2_1
-                phi3 = phi3_1
-            elif abs(phi2_1 - actual_joints[1]) > abs(phi2_2 - actual_joints[1]):
-                phi2 = phi2_2
-                phi3 = phi3_2
+            if self.angle_diff(phi2_1, actual_joints[1]) < self.angle_diff(phi2_2, actual_joints[1]):
+                phi2 = self.normalize_angle(phi2_1)
+                phi3 = self.normalize_angle(phi3_1)
+            elif self.angle_diff(phi2_1, actual_joints[1]) >= self.angle_diff(phi2_2, actual_joints[1]):
+                phi2 = self.normalize_angle(phi2_2)
+                phi3 = self.normalize_angle(phi3_2)
 
             # Error check
             if d1 > 1 or d1 < 0:
                 return None
-            elif phi3 > 3.05 or phi3 < -3.05:
-                return None
             return [d1, phi2, phi3]
+
         except Exception as e:
             print(e)
             return None
 
+    def normalize_angle(self, angle):
+        while angle < 0:
+            angle += math.radians(360)
+        while angle > math.radians(360):
+            angle -= math.radians(360)
+        return angle
+
+    def angle_diff(self, a1, a2):
+        a1 = math.degrees(a1)
+        a2 = math.degrees(a2)
+        dif = float(abs(a1-a2) % 360)
+        if dif > 180:
+            dif = 360 - dif
+        return math.radians(dif)
+
+
     def listener_callback(self, msg):
-        result = self.calc_inv_kin(self.previous_joints, [msg.pose.position.x, msg.pose.position.y, msg.pose.position.z])
+        result = self.calc_inv_kin(self.previous_joints,
+                                   [msg.pose.position.x, msg.pose.position.y, msg.pose.position.z])
         if result is not None:
             message = JointState()
             message.header.stamp = ROSClock().now().to_msg()
@@ -75,29 +91,11 @@ class Inv_kin(Node):
         else:
             self.get_logger().error("Can't reach given position")
 
+
     def listener_callback2(self, msg):
         self.previous_joints[0] = msg.position[0]
         self.previous_joints[1] = msg.position[1]
         self.previous_joints[2] = msg.position[2]
-
-    def normalize_angle(self, angle):
-        while angle < 0:
-            angle += 360 * 16
-        while angle > 360 * 16:
-            angle -= 360 * 16
-        return angle
-
-    def fix_angle(self, angle, nr):
-        angle1 = self.normalize_angle(angle)
-        if self.previous_joints[nr] >= 0 and self.previous_joints[nr] < math.pi * 0.5:
-            return angle
-        if self.previous_joints[nr] >= math.pi * 0.5 and self.previous_joints[nr] < math.pi * 1.0:
-            return angle
-        if self.previous_joints[nr] >= math.pi and self.previous_joints[nr] < math.pi * 1.5:
-            return angle
-        if self.previous_joints[nr] >= 1.5 * math.pi and self.previous_joints[nr] < math.pi * 2.0:
-            return angle
-
 
 def main(args=None):
     rclpy.init(args=args)
